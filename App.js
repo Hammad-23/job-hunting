@@ -1,27 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View,TextInput,ScrollView } from 'react-native';
-import Input from './components/input'
-export default function App() {
-  return (
-    
-    <View style={styles.container}>
-      
-      <Input placeholder='  Enter Name'/>
-      <Input placeholder='  Enter Name'/>
-    
-      <StatusBar style="auto" />
-    </View>
-    
 
+import * as React from 'react';
+import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
+import LogIn from './views/login/index'
+import SignUp from './views/signup/index'
+
+
+
+export default function App() {
+  const Stack = createStackNavigator();
+  return (
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName='login'>
+        <Stack.Screen options={{headerStyle:{
+          backgroundColor:'darkblue'
+        },headerTintColor:'white'}} name="login" component={LogIn} />
+        <Stack.Screen options={{headerStyle:{
+          backgroundColor:'darkblue'
+        },headerTintColor:'white'}} name="signup" component={SignUp} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
