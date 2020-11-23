@@ -4,7 +4,7 @@ import { TouchableOpacity, Text } from "react-native";
 function CustomButton(props) {
   return (
     <TouchableOpacity
-    onPress={props.onPress}
+      onPress={props.onPress}
       style={{
         backgroundColor: props.color,
         borderRadius: 15,
