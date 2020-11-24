@@ -1,7 +1,7 @@
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { loginUser } from "../../config/firebase";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView, Image } from "react-native";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
 
@@ -36,7 +36,13 @@ export default function LogIn({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.main}>
+       <View>
+      <Image
+        style={styles.tinyLogo}
+        source={require('../../assets/job-logo.png')}
+      />
+      </View>
       <View>
         <Input onChange={userEmail} placeholder="  Enter Email" />
       </View>
@@ -58,16 +64,20 @@ export default function LogIn({ navigation }) {
         />
       </View>
 
-      <StatusBar style="auto" />
-    </View>
+      {/* <StatusBar style="auto" /> */}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  main: {
     flex: 1,
     backgroundColor: "#dedede",
     alignItems: "center",
     justifyContent: "center",
   },
+  tinyLogo: {
+    width: 250,
+    height: 250,
+  }
 });

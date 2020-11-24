@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView, Image } from "react-native";
 import { registerUser } from "../../config/firebase";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
+
+
 
 function SignUp({ navigation }) {
   const [name, setName] = useState("");
@@ -34,6 +36,12 @@ function SignUp({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.main}>
       <View>
+      <Image
+        style={styles.tinyLogo}
+        source={require('../../assets/job-logo.png')}
+      />
+      </View>
+      <View>
         <Input onChange={fullName} placeholder="  Enter Full Name" />
       </View>
       <View style={{ marginTop: 30 }}>
@@ -59,5 +67,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#dedede",
   },
+  tinyLogo: {
+    width: 250,
+    height: 250,
+  }
 });
 export default SignUp;
