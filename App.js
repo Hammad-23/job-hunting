@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator, HeaderTitle } from "@react-navigation/stack";
 import LogIn from "./views/login/index";
 import SignUp from "./views/signup/index";
+import DashboardEmployee from './views/dashboardemployee'
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -29,6 +30,16 @@ export default function App() {
           }}
           name="signup"
           component={SignUp}
+        />
+         <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: "darkblue",
+            },
+            headerTintColor: "white",
+          }}
+          name="dashboardemployee"
+          component={DashboardEmployee}
         />
       </Stack.Navigator>
     </NavigationContainer>

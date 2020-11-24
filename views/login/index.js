@@ -21,6 +21,7 @@ export default function LogIn({ navigation }) {
     try {
       await loginUser(email, pass);
       alert("User Successfully Logged In!");
+      navigation.navigate('dashboardemployee')
       // let userId = firebase.auth().currentUser.uid;
       // localStorage.setItem("ID", userId);
 
