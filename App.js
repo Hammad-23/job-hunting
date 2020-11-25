@@ -5,6 +5,7 @@ import { createStackNavigator, HeaderTitle } from "@react-navigation/stack";
 import LogIn from "./views/login/index";
 import SignUp from "./views/signup/index";
 import DashboardEmployee from './views/dashboardemployee'
+import AddInfo from './views/addinfo'
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -40,6 +41,16 @@ export default function App() {
           }}
           name="dashboardemployee"
           component={DashboardEmployee}
+        />
+         <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: "darkblue",
+            },
+            headerTintColor: "white",
+          }}
+          name="addinfo"
+          component={AddInfo}
         />
       </Stack.Navigator>
     </NavigationContainer>

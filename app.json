@@ -4,9 +4,9 @@
     "slug": "job-hunting",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/job-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/job-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "darkblue"
     },
