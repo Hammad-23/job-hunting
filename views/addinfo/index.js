@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from '../../components/input'
+import CustomButton from '../../components/button'
 import {
   StyleSheet,
   View,
@@ -20,6 +21,21 @@ function AddInfo() {
           </View>
           <View style={styles.gape}>
              <Input placeholder='Enter your Full Name'/>
+          </View>
+          <View style={styles.gape}>
+             <Input placeholder='Enter your Full Name'/>
+          </View>
+          <View style={styles.gape}>
+             <Input placeholder='Enter your Full Name'/>
+          </View>
+          <View style={styles.gape}>
+             <Input placeholder='Enter your Age'/>
+          </View>
+          <View style={styles.gape}>
+             <Input placeholder='Enter your Mobile Number' type='numeric'/>
+          </View>
+          <View style={styles.gape}>
+             <CustomButton color='darkblue' text='Submit' />
           </View>
       </View>
     </ScrollView>

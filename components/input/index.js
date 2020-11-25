@@ -18,6 +18,7 @@ function Input(props) {
         onChange={props.onChange}
         value={props.value}
         placeholder={props.placeholder}
+        keyboardType ={props.type}
       />
     </>
   );
