@@ -4,8 +4,6 @@ import { registerUser } from "../../config/firebase";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
 
-
-
 function SignUp({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,10 +34,10 @@ function SignUp({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.main}>
       <View>
-      <Image
-        style={styles.tinyLogo}
-        source={require('../../assets/job-logo.png')}
-      />
+        <Image
+          style={styles.tinyLogo}
+          source={require("../../assets/job-logo.png")}
+        />
       </View>
       <View>
         <Input onChange={fullName} placeholder="  Enter Full Name" />
@@ -70,6 +68,6 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 250,
     height: 250,
-  }
+  },
 });
 export default SignUp;
