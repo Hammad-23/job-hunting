@@ -4,6 +4,7 @@ import { loginUser } from "../../config/firebase";
 import { StyleSheet, View, ScrollView, Image } from "react-native";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
+import { AsyncStorage } from 'react-native';
 
 export default function LogIn({ navigation }) {
   const [email, setEmail] = useState("");
@@ -22,7 +23,8 @@ export default function LogIn({ navigation }) {
       await loginUser(email, pass);
       alert("User Successfully Logged In!");
       navigation.navigate('dashboardemployee')
-      // let userId = firebase.auth().currentUser.uid;
+      let userId = firebase.auth().currentUser.uid;
+      AsyncStorage.setItem('ID', userId)
       // localStorage.setItem("ID", userId);
 
       // const take = localStorage.getItem("option");

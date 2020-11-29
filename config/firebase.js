@@ -1,6 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/firestore"; // If using Firebase database
 import "firebase/auth";
+import { AsyncStorage } from 'react-native';
+import { useState } from "react";
 
 var firebaseConfig = {
   apiKey: "AIzaSyB94li83i5YC22ZkVAmnVKhwlpb-B5sNS0",
@@ -35,9 +37,12 @@ function jobReq(requirements) {
   return store.collection("jobRequirements").doc(userId).set(requirements);
 }
 
-
+const [id,setId]=useState('')
 async function getData() {
-  // const userID = localStorage.getItem("ID");
+  AsyncStorage.getItem('ID').then((userId)=>{
+    setId(userId)
+
+  })
 let data= await  store
     .collection("profileInformation")
     // .where("userId", "==", userID)
