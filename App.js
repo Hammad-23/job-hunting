@@ -6,6 +6,7 @@ import LogIn from "./views/login/index";
 import SignUp from "./views/signup/index";
 import DashboardEmployee from './views/dashboardemployee'
 import AddInfo from './views/addinfo'
+import DashboardCompany from './views/dashboardcompany'
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -51,6 +52,16 @@ export default function App() {
           }}
           name="addinfo"
           component={AddInfo}
+        />
+         <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: "darkblue",
+            },
+            headerTintColor: "white",
+          }}
+          name="dashboardCompany"
+          component={DashboardCompany}
         />
       </Stack.Navigator>
     </NavigationContainer>

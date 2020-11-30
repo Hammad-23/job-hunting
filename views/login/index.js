@@ -32,7 +32,8 @@ export default function LogIn({ navigation }) {
         .then((res) => {
           console.log(res);
           if (res === "Company") {
-            alert("company hai");
+            // alert("company hai");
+            navigation.navigate('dashboardCompany')
           } else {
             navigation.navigate("dashboardemployee");
           }
