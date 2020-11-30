@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, ScrollView, Image } from "react-native";
+import { StyleSheet, View, ScrollView, Image,Picker,Text } from "react-native";
 import { registerUser } from "../../config/firebase";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
+import { AsyncStorage } from 'react-native';
 
 function SignUp({ navigation }) {
+  const [selectedValue, setSelectedValue] = useState("Company");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +22,9 @@ function SignUp({ navigation }) {
     const name = enteredText.nativeEvent.text;
     setPassword(name);
   };
+  console.log(selectedValue)
+  AsyncStorage.setItem('option',selectedValue)
+
 
   const signup = async function () {
     try {
@@ -41,6 +46,27 @@ function SignUp({ navigation }) {
       </View>
       <View>
         <Input onChange={fullName} placeholder="  Enter Full Name" />
+      </View>
+      <View style={{display: 'flex', flexDirection: 'row',justifyContent: 'space-around',alignItems: 'center'}}>
+      <Text>Select a Role:</Text>
+      <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150, borderWidth: 1, borderColor: 'blue' }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="Company" value="Company" />
+        <Picker.Item label="Employee" value="Employee" />
+      </Picker>
+
+      {/* <RNPickerSelect
+            onValueChange={(value) => console.log(value)}
+            items={[
+                { label: 'Football', value: 'football' },
+                { label: 'Baseball', value: 'baseball' },
+                { label: 'Hockey', value: 'hockey' },
+            ]}
+        /> */}
+
       </View>
       <View style={{ marginTop: 30 }}>
         <Input onChange={userEmail} placeholder="  Enter Email" />

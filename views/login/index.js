@@ -4,7 +4,8 @@ import { loginUser } from "../../config/firebase";
 import { StyleSheet, View, ScrollView, Image } from "react-native";
 import Input from "../../components/input";
 import CustomButton from "../../components/button";
-import { AsyncStorage } from 'react-native';
+import firebase from "firebase";
+import { AsyncStorage } from "react-native";
 
 export default function LogIn({ navigation }) {
   const [email, setEmail] = useState("");
@@ -22,16 +23,24 @@ export default function LogIn({ navigation }) {
     try {
       await loginUser(email, pass);
       alert("User Successfully Logged In!");
-      navigation.navigate('dashboardemployee')
+
       let userId = firebase.auth().currentUser.uid;
-      AsyncStorage.setItem('ID', userId)
+      AsyncStorage.setItem("ID", userId);
       // localStorage.setItem("ID", userId);
 
-      // const take = localStorage.getItem("option");
-      // if (take === "Company") {
-      //   history.replace("/dashboardcompany");
-      // } else {
-      //   history.replace("/dashboardemployee");
+      AsyncStorage.getItem("option")
+        .then((res) => {
+          console.log(res);
+          if (res === "Company") {
+            alert("company hai");
+          } else {
+            navigation.navigate("dashboardemployee");
+          }
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+
       // }
     } catch (error) {
       alert(error.message);
@@ -40,11 +49,11 @@ export default function LogIn({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.main}>
-       <View>
-      <Image
-        style={styles.tinyLogo}
-        source={require('../../assets/job-logo.png')}
-      />
+      <View>
+        <Image
+          style={styles.tinyLogo}
+          source={require("../../assets/job-logo.png")}
+        />
       </View>
       <View>
         <Input onChange={userEmail} placeholder="  Enter Email" />
@@ -82,5 +91,5 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 250,
     height: 250,
-  }
+  },
 });

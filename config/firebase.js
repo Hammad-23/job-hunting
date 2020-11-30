@@ -37,11 +37,11 @@ function jobReq(requirements) {
   return store.collection("jobRequirements").doc(userId).set(requirements);
 }
 
-const [id,setId]=useState('')
+let userID
 async function getData() {
   AsyncStorage.getItem('ID').then((userId)=>{
-    setId(userId)
-
+    
+    userID = userId
   })
 let data= await  store
     .collection("profileInformation")
